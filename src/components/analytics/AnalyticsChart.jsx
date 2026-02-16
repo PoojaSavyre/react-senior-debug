@@ -20,12 +20,13 @@ let analyticsEntry = null;
 
 function readAnalytics() {
   if (analyticsEntry && analyticsEntry.data) return analyticsEntry.data;
+  if (analyticsEntry && analyticsEntry.error) throw analyticsEntry.error; // ErrorBoundary catches once
   if (analyticsEntry && analyticsEntry.promise) throw analyticsEntry.promise;
 
-  analyticsEntry = { data: null, promise: null };
+  analyticsEntry = { data: null, error: null, promise: null };
   analyticsEntry.promise = get('/analytics')
     .then((d) => { analyticsEntry.data = d; })
-    .catch((e) => { analyticsEntry = null; throw e; });
+    .catch((e) => { analyticsEntry.error = e; }); // Store error, don't reset cache
   throw analyticsEntry.promise;
 }
 

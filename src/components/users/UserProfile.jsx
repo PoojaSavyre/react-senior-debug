@@ -21,12 +21,13 @@ function readUserProfile(userId) {
   if (userProfileCache.has(key)) {
     const entry = userProfileCache.get(key);
     if (entry.data) return entry.data;
+    if (entry.error) throw entry.error; // ErrorBoundary catches once
     throw entry.promise;
   }
-  const entry = { data: null, promise: null };
+  const entry = { data: null, error: null, promise: null };
   entry.promise = get(`/users/${userId}`)
     .then((d) => { entry.data = d; })
-    .catch((e) => { userProfileCache.delete(key); throw e; });
+    .catch((e) => { entry.error = e; }); // Store error, don't delete cache entry
   userProfileCache.set(key, entry);
   throw entry.promise;
 }

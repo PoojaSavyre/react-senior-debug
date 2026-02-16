@@ -21,12 +21,13 @@ function readUserList(page, search) {
   if (userListCache.has(key)) {
     const entry = userListCache.get(key);
     if (entry.data) return entry.data;
+    if (entry.error) throw entry.error; // ErrorBoundary catches once
     throw entry.promise;
   }
-  const entry = { data: null, promise: null };
+  const entry = { data: null, error: null, promise: null };
   entry.promise = get(`/users?page=${page}&limit=10&search=${encodeURIComponent(search)}`)
     .then((d) => { entry.data = d; })
-    .catch((e) => { userListCache.delete(key); throw e; });
+    .catch((e) => { entry.error = e; }); // Store error, don't delete cache entry
   userListCache.set(key, entry);
   throw entry.promise;
 }
