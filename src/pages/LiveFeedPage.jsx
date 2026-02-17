@@ -1,7 +1,5 @@
 /**
  * LiveFeedPage - Lazy loaded route page for the live feed.
- *
- * Competency: Bundle Optimization, WebSocket Real-time Communication
  */
 
 import React from 'react';

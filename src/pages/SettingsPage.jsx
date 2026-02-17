@@ -1,7 +1,5 @@
 /**
  * SettingsPage - Lazy loaded route page for settings.
- *
- * Competency: Bundle Optimization
  */
 
 import React from 'react';

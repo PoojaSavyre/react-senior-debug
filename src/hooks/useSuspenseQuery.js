@@ -1,10 +1,6 @@
 /**
  * useSuspenseQuery - Hook that creates Suspense-compatible data fetching.
  * Uses the "throw promise" pattern for React Suspense.
- *
- * Competency: React Suspense for Data Fetching, React Hook Dependencies
- * Bug surface: suspense dependency array, stale data, abort signals,
- *              effect integration, loading states
  */
 
 import { useRef } from 'react';

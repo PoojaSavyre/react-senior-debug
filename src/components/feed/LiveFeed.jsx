@@ -1,10 +1,5 @@
 /**
  * LiveFeed - Real-time WebSocket feed consumer with message ordering and stats.
- *
- * Competency: WebSocket Real-time Communication, React Hook Dependencies
- * Bug surface: message ordering, duplicate handling, connection state race condition,
- *              message queue overflow, memory leaks, heartbeat monitoring,
- *              reconnection handling, stale closure in event handlers
  */
 
 import React, { useState, useEffect, useCallback, useRef, memo } from 'react';
@@ -219,7 +214,6 @@ const LiveFeed = memo(function LiveFeed() {
 
 /**
  * Connection stats panel - displays WebSocket health metrics.
- * Bug surface: stale state, missing updates, heartbeat display
  */
 const ConnectionStatsPanel = memo(function ConnectionStatsPanel({
   connected,

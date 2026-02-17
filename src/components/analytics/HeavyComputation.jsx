@@ -1,9 +1,5 @@
 /**
  * HeavyComputation - Component that offloads heavy work to avoid blocking the event loop.
- *
- * Competency: Event Loop Optimization, Event Loop Understanding
- * Bug surface: blocking event loop operations, event loop starvation, stalling,
- *              blocking IO, priority misunderstanding
  */
 
 import React, { useState, useCallback, useRef, memo } from 'react';
@@ -162,7 +158,6 @@ const HeavyComputation = memo(function HeavyComputation() {
   }, []);
 
   // BLOCKING computation - runs synchronously on main thread (the anti-pattern)
-  // Bug surface: blocks event loop, freezes UI, prevents paint updates
   const runBlocking = useCallback(() => {
     setIsRunning(true);
     setProgress(0);

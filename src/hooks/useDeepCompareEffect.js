@@ -1,9 +1,5 @@
 /**
  * useDeepCompareEffect - Effect hook that uses deep comparison for dependencies.
- *
- * Competency: React Hook Dependencies
- * Bug surface: object reference dependencies, primitive vs reference,
- *              hook dependency referential inequality, useMemo stale dependencies
  */
 
 import { useEffect, useRef } from 'react';

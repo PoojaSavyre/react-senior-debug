@@ -1,7 +1,5 @@
 /**
  * RealTimeIndicator - Shows WebSocket connection status.
- *
- * Competency: WebSocket Real-time Communication
  */
 
 import React, { memo } from 'react';

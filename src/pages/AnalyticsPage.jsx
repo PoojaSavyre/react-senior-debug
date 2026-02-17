@@ -1,8 +1,5 @@
 /**
  * AnalyticsPage - Lazy loaded route page for analytics + event loop.
- *
- * Competency: Bundle Optimization, Event Loop Optimization, Suspense Data Fetching,
- *             React Suspense Implementation
  */
 
 import React from 'react';

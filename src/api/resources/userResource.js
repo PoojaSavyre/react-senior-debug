@@ -1,7 +1,5 @@
 /**
  * User-related Suspense resources.
- *
- * Competency: React Suspense for Data Fetching
  */
 
 import { createResource, createKeyedResource } from './createResource';

@@ -1,8 +1,5 @@
 /**
  * CacheManager - LRU cache with TTL, tag-based invalidation, and size limits.
- *
- * Competency: API Response Caching
- * Bug surface: stale cache, race conditions, memory leaks, improper invalidation
  */
 
 class CacheEntry {

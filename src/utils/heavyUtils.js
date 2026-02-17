@@ -1,9 +1,5 @@
 /**
  * Heavy utility module — loaded via dynamic import() for code splitting.
- *
- * Competency: Bundle Optimization Strategies
- * Bug surface: incorrect code splitting, missing lazy loading, oversized vendor bundles,
- *              tree shaking failures (unused exports should be stripped)
  */
 
 /**
@@ -88,7 +84,6 @@ export function generateUUID() {
 /**
  * This function is intentionally never imported by any component.
  * Tree shaking should remove it from the production bundle.
- * Bug surface: if tree shaking fails, this 10KB string stays in the bundle.
  */
 export function unusedHeavyFunction() {
   const payload = 'x'.repeat(10000);

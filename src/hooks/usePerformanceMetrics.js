@@ -1,8 +1,5 @@
 /**
  * usePerformanceMetrics - Hook to track and report performance metrics.
- *
- * Competency: React Performance Analysis
- * Bug surface: untracked metrics, stale props, incorrect memo usage
  */
 
 import { useState, useEffect, useRef, useCallback } from 'react';

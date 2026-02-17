@@ -1,8 +1,5 @@
 /**
  * ConnectionPool - Manages a pool of WebSocket connections with limits and reuse.
- *
- * Competency: WebSocket Real-time Communication
- * Bug surface: connection pool exhaustion, connection leak memory, connection not closing properly
  */
 
 import { WebSocketManager } from './WebSocketManager';

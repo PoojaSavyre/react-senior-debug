@@ -1,7 +1,5 @@
 /**
  * Performance measurement utilities.
- *
- * Competency: React Performance Analysis
  */
 
 function measureRenderTime(fn) {

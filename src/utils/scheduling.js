@@ -1,7 +1,5 @@
 /**
  * Scheduling utilities - microtask/macrotask helpers.
- *
- * Competency: Event Loop Understanding, Event Loop Optimization
  */
 
 function yieldToMainThread() {

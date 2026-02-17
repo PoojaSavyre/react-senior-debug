@@ -1,8 +1,5 @@
 /**
  * CacheContext - Provides cache manager to the component tree.
- *
- * Competency: API Response Caching
- * Bug surface: incorrect context API implementation, stale context values
  */
 
 import React, { createContext, useContext, useMemo, useCallback, useState } from 'react';

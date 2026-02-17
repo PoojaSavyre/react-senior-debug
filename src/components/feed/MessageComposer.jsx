@@ -1,8 +1,5 @@
 /**
  * MessageComposer - Send messages via WebSocket.
- *
- * Competency: WebSocket Real-time Communication
- * Bug surface: connection state race condition, serialization errors
  */
 
 import React, { useState, useCallback, memo } from 'react';

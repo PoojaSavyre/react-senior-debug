@@ -1,8 +1,5 @@
 /**
  * WebSocketContext - Provides WebSocket state and methods to the component tree.
- *
- * Competency: WebSocket Real-time Communication, React Component Suspense Management
- * Bug surface: context not integrating with suspense, stale context values
  */
 
 import React, { createContext, useContext, useMemo, useCallback, useState } from 'react';

@@ -1,9 +1,5 @@
 /**
  * UserProfile - Nested Suspense boundaries for user detail + activity data.
- *
- * Competency: React Suspense for Data Fetching, React Component Suspense Management
- * Bug surface: nested suspense boundaries, suspense not handling abort signals,
- *              suspense with incorrect dependency array, boundary placement issues
  */
 
 import React from 'react';

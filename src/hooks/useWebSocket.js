@@ -1,9 +1,5 @@
 /**
  * useWebSocket - React hook for WebSocket connection management.
- *
- * Competency: React Hook Dependencies, WebSocket Real-time Communication
- * Bug surface: stale closures, missing cleanup, dependency referential inequality,
- *              effect timing, memory leaks, closure capturing stale state
  */
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';

@@ -1,9 +1,5 @@
 /**
  * UserList - Fetches and displays user list using Suspense resources.
- *
- * Competency: React Suspense for Data Fetching, React Component Suspense Management
- * Bug surface: incorrect data fetching in suspense, suspense not updating on data change,
- *              stale data in suspense fallback, suspense with incorrect loading state
  */
 
 import React, { useState, useCallback, startTransition, memo } from 'react';

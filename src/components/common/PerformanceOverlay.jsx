@@ -1,8 +1,5 @@
 /**
  * PerformanceOverlay - Dev overlay showing performance metrics, render counts.
- *
- * Competency: React Performance Analysis
- * Bug surface: untracked metrics, stale props causing performance issues
  */
 
 import React, { useState, memo, useCallback } from 'react';

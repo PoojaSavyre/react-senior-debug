@@ -1,10 +1,5 @@
 /**
  * Settings - System settings, cache controls, hook dependency demos, bundle info.
- *
- * Competency: Bundle Optimization Strategies, React Suspense Implementation,
- *             React Hook Dependencies, API Response Caching
- * Bug surface: dynamic import errors, lazy loading failures, bundle chunking,
- *              hook dependency bugs, stale closures, cache invalidation
  */
 
 import React, { useState, useCallback, useEffect, useRef, useMemo, memo } from 'react';
@@ -49,9 +44,6 @@ const Settings = memo(function Settings() {
   );
 });
 
-// ──────────────────────────────────────────────────────────
-// Competency 6: API Response Caching — Live cache controls
-// ──────────────────────────────────────────────────────────
 function CacheSettings() {
   const [stats, setStats] = useState(globalCache.getStats());
   const [invalidateKey, setInvalidateKey] = useState('');
@@ -152,9 +144,6 @@ function CacheSettings() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// Competency 4: React Hook Dependencies — Interactive demos
-// ──────────────────────────────────────────────────────────
 function HookDependencyLab() {
   return (
     <div style={{ maxWidth: '700px' }}>
@@ -399,9 +388,6 @@ function PerformanceSettings() {
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// Competency 10: Bundle Optimization Strategies
-// ──────────────────────────────────────────────────────────
 function BundleInfo() {
   const [dynamicModule, setDynamicModule] = useState(null);
   const [isLoadingModule, setIsLoadingModule] = useState(false);

@@ -1,10 +1,6 @@
 /**
  * SuspenseBoundary - Composed Suspense + ErrorBoundary wrapper.
  * Provides proper boundary placement with accessible fallback.
- *
- * Competency: React Suspense Implementation, React Component Suspense Management
- * Bug surface: missing suspense boundary, nested boundary conflicts,
- *              fallback not rendering, key prop missing, boundary placement issues
  */
 
 import React, { Suspense } from 'react';

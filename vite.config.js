@@ -3,10 +3,6 @@ import react from '@vitejs/plugin-react';
 
 /**
  * Vite configuration with bundle optimization.
- *
- * Competency: Bundle Optimization Strategies
- * Bug surface: incorrect code splitting, missing lazy loading, oversized vendor bundles,
- *              tree shaking failures, chunk size issues, manual chunks misconfiguration
  */
 export default defineConfig({
   plugins: [react()],
@@ -28,11 +24,6 @@ export default defineConfig({
       output: {
         /**
          * Manual chunk splitting strategy.
-         * Bug surface:
-         *   - Moving too much into vendor chunks → oversized bundles
-         *   - Not splitting enough → all code in one chunk
-         *   - Splitting cache/api services away from components that use them → extra requests
-         *   - Incorrect regex matching → wrong modules in wrong chunks
          */
         manualChunks(id) {
           // React core in its own chunk (large, rarely changes)

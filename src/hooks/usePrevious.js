@@ -1,8 +1,5 @@
 /**
  * usePrevious - Stores the previous value of a variable across renders.
- *
- * Competency: React Hook Dependencies
- * Bug surface: stale closure, ref timing
  */
 
 import { useRef, useEffect } from 'react';

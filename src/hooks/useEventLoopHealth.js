@@ -1,9 +1,5 @@
 /**
  * useEventLoopHealth - React hook that monitors event loop health.
- *
- * Competency: Event Loop Optimization, React Hook Dependencies
- * Bug surface: timer deps, memory leaks from accumulated callbacks,
- *              effect cleanup, blocking detection
  */
 
 import { useState, useEffect, useRef, useCallback } from 'react';

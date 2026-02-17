@@ -1,8 +1,5 @@
 /**
  * Cache strategies: cache-first, network-first, stale-while-revalidate.
- *
- * Competency: API Response Caching
- * Bug surface: stale data, race conditions, error handling, rate limits
  */
 
 /**

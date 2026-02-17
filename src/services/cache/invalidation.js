@@ -1,7 +1,5 @@
 /**
  * Cache invalidation utilities - tag-based and mutation-triggered invalidation.
- *
- * Competency: API Response Caching
  */
 
 class CacheInvalidator {

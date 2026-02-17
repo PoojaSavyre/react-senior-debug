@@ -1,8 +1,5 @@
 /**
  * useThrottle - Throttle hook using requestAnimationFrame and timers.
- *
- * Competency: React Hook Dependencies, Event Loop Understanding
- * Bug surface: stale closures, timer interference, cleanup
  */
 
 import { useRef, useCallback, useEffect } from 'react';

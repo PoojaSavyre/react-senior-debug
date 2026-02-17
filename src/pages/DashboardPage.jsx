@@ -1,7 +1,5 @@
 /**
  * DashboardPage - Lazy loaded route page for the dashboard.
- *
- * Competency: Bundle Optimization, React Suspense Implementation
  */
 
 import React from 'react';

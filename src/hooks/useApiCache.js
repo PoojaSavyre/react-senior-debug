@@ -1,9 +1,5 @@
 /**
  * useApiCache - React hook for cached API calls with strategy selection.
- *
- * Competency: React Hook Dependencies, API Response Caching
- * Bug surface: object reference dependencies, stale dependencies, memory leaks,
- *              race conditions, missing cleanup
  */
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';

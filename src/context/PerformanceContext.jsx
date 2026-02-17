@@ -1,8 +1,5 @@
 /**
  * PerformanceContext - Provides performance monitoring to the component tree.
- *
- * Competency: React Performance Analysis
- * Bug surface: untracked metrics, performance context overhead
  */
 
 import React, { createContext, useContext, useMemo, useCallback, useState, useRef } from 'react';

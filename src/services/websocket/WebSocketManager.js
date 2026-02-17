@@ -2,8 +2,6 @@
  * WebSocketManager - Full lifecycle management for WebSocket connections.
  * Handles connection, authentication, heartbeat, reconnection, message queuing,
  * serialization, and proper cleanup.
- *
- * Competency: WebSocket Real-time Communication
  */
 
 const WS_STATES = {
@@ -329,7 +327,6 @@ class WebSocketManager {
 
   /**
    * Heartbeat monitor - detects if server stops sending pings.
-   * Bug surface: heartbeat timeout, missed heartbeats, stale connection detection
    */
   _startHeartbeatMonitor() {
     this._clearHeartbeatTimeout();
@@ -373,7 +370,6 @@ class WebSocketManager {
 
   /**
    * Track message sequence to detect out-of-order delivery.
-   * Bug surface: message ordering, lost messages, duplicate detection
    */
   trackMessageSequence(sequenceNum) {
     this.messageSequence++;

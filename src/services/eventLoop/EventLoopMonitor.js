@@ -1,9 +1,5 @@
 /**
  * EventLoopMonitor - Monitors event loop health, detects lag, stalls, and blocking.
- *
- * Competencies: Event Loop Optimization, Event Loop Understanding
- * Bug surface: blocking operations, starvation, lag detection, phase confusion,
- *              microtask flooding, priority inversion, memory accumulation
  */
 
 class EventLoopMonitor {

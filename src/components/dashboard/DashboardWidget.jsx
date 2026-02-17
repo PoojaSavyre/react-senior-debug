@@ -1,8 +1,5 @@
 /**
  * DashboardWidget - Memoized widget component with custom comparator.
- *
- * Competency: React Performance Analysis
- * Bug surface: incorrect use of React.memo, stale props
  */
 
 import React, { memo } from 'react';

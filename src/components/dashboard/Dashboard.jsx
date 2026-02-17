@@ -1,9 +1,5 @@
 /**
  * Dashboard - Main dashboard component with memoized widgets and performance tracking.
- *
- * Competency: React Performance Analysis, API Response Caching
- * Bug surface: incorrect use of React.memo, stale props causing performance issues,
- *              untracked performance metrics, cache strategies, race conditions
  */
 
 import React, { memo, useMemo, useCallback, useState, startTransition } from 'react';

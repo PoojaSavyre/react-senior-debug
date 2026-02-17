@@ -1,9 +1,5 @@
 /**
  * EventLoopDashboard - Visualizes event loop health and phase timings.
- *
- * Competency: Event Loop Optimization, Event Loop Understanding
- * Bug surface: event loop monitoring, lag detection, stall detection,
- *              phase confusion, timer delays
  */
 
 import React, { useState, useCallback, memo } from 'react';

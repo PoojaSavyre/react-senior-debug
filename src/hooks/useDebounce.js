@@ -1,9 +1,5 @@
 /**
  * useDebounce - Debounce hook with stable callback references.
- *
- * Competency: React Hook Dependencies
- * Bug surface: stale closure in callback, hook dependency referential inequality,
- *              effect cleanup dependencies, missing cleanup
  */
 
 import { useState, useEffect, useRef, useCallback } from 'react';

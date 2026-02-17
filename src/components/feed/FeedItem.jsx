@@ -1,8 +1,5 @@
 /**
  * FeedItem - Memoized individual feed message.
- *
- * Competency: React Performance Analysis
- * Bug surface: incorrect React.memo, stale props
  */
 
 import React, { memo } from 'react';

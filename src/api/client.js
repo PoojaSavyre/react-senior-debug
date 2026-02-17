@@ -1,9 +1,6 @@
 /**
  * API Client - Handles fetch requests with rate limiting, retry, error handling,
  * request deduplication, and abort controller integration.
- *
- * Competency: API Response Caching
- * Bug surface: rate limits, race conditions, error handling, API versioning
  */
 
 const DEFAULT_BASE_URL = '/api';

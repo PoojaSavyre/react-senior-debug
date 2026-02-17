@@ -1,9 +1,5 @@
 /**
  * SuspenseFallback - Accessible loading fallback UIs that prevent layout shifts.
- *
- * Competency: React Component Suspense Management, React Suspense Implementation
- * Bug surface: missing fallback UI, fallback not accessible, layout shifts,
- *              inconsistent fallback UI, fallback not rendering
  */
 
 import React from 'react';

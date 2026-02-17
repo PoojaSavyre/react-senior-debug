@@ -1,9 +1,5 @@
 /**
  * useInterval - Safe interval hook with proper cleanup and no stale closures.
- *
- * Competency: React Hook Dependencies
- * Bug surface: stale closure in callback, hook effect dependency timing,
- *              memory leaks, effect cleanup dependencies
  */
 
 import { useEffect, useRef } from 'react';

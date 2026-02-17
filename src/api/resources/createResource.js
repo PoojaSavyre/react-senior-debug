@@ -1,10 +1,6 @@
 /**
  * createResource - Factory for Suspense-compatible data resources.
  * Implements the "throw promise" pattern that React Suspense requires.
- *
- * Competency: React Suspense for Data Fetching
- * Bug surface: incorrect data fetching, stale data, not updating on change,
- *              abort signals, error handling, dependency arrays, SSR compat
  */
 
 const STATUS = {

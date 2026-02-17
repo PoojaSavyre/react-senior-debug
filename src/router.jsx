@@ -1,9 +1,5 @@
 /**
  * Router configuration with lazy-loaded routes and Suspense boundaries.
- *
- * Competency: Bundle Optimization Strategies, React Suspense Implementation
- * Bug surface: suspense with react router conflicts, missing boundary wrapper,
- *              lazy loading failures, dynamic import errors, route-level suspense
  */
 
 import React, { lazy } from 'react';

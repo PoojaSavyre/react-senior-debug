@@ -1,21 +1,16 @@
 /**
  * AnalyticsChart - Renders analytics time-series data with Suspense.
- *
- * Competency: React Suspense for Data Fetching, React Performance Analysis,
- *             React Suspense Implementation
- * Bug surface: suspense data fetching, performance issues, heavy rendering,
- *              incorrect data fetching, stale data, not updating on change,
- *              suspense cache invalidation, createResource pattern
+ * Subscribes to real-time WebSocket updates for live metric refreshes.
  */
 
-import React, { memo, useMemo, useState, useCallback } from 'react';
+import React, { memo, useMemo, useState, useEffect, useCallback } from 'react';
 import { get } from '../../api/client';
+import { useWebSocketContext } from '../../context/WebSocketContext';
 import { SuspenseBoundary } from '../common/SuspenseBoundary';
 import { SkeletonDashboard } from '../common/SuspenseFallback';
 
 // ── Module-level Suspense cache ──
 // Uses apiClient (retry, dedup, rate limiting) inside the throw-promise pattern
-// Bug surface: cache invalidation - stale data if not cleared properly
 let analyticsEntry = null;
 
 function readAnalytics() {
@@ -36,14 +31,37 @@ function invalidateAnalyticsCache() {
 }
 
 /**
- * AnalyticsChartWrapper - Provides refresh capability around the Suspense boundary.
- * Bug surface: suspense cache invalidation, boundary placement
+ * AnalyticsChartWrapper - Provides refresh capability around the Suspense boundary
+ * and subscribes to real-time WebSocket analytics updates.
  */
 const AnalyticsChartWrapper = memo(function AnalyticsChartWrapper() {
+  const { subscribe, send, connected, authenticated } = useWebSocketContext();
   const [refreshKey, setRefreshKey] = useState(0);
+  const [realtimeUpdate, setRealtimeUpdate] = useState(null);
+
+  // Subscribe to the 'analytics' WebSocket channel when authenticated
+  useEffect(() => {
+    if (connected && authenticated) {
+      send('subscribe', { channel: 'analytics' });
+    }
+    return () => {
+      if (connected && authenticated) {
+        send('unsubscribe', { channel: 'analytics' });
+      }
+    };
+  }, [connected, authenticated, send]);
+
+  // Listen for real-time analytics:update messages
+  useEffect(() => {
+    const unsubscribe = subscribe('analytics:update', (payload) => {
+      setRealtimeUpdate(payload);
+    });
+    return unsubscribe;
+  }, [subscribe]);
 
   const handleRefresh = useCallback(() => {
     invalidateAnalyticsCache();
+    setRealtimeUpdate(null);
     setRefreshKey((k) => k + 1);
   }, []);
 
@@ -51,32 +69,65 @@ const AnalyticsChartWrapper = memo(function AnalyticsChartWrapper() {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
         <h3 style={{ margin: 0, fontSize: '18px', color: '#111827' }}>Analytics Overview</h3>
-        <button onClick={handleRefresh} style={{
-          padding: '6px 14px',
-          border: '1px solid #d1d5db',
-          borderRadius: '6px',
-          backgroundColor: 'white',
-          cursor: 'pointer',
-          fontSize: '13px',
-          color: '#374151',
-        }}>
-          Refresh Data
-        </button>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          {realtimeUpdate && (
+            <span style={{ fontSize: '11px', color: '#10b981', fontWeight: '500' }}>
+              Live
+            </span>
+          )}
+          <button onClick={handleRefresh} style={{
+            padding: '6px 14px',
+            border: '1px solid #d1d5db',
+            borderRadius: '6px',
+            backgroundColor: 'white',
+            cursor: 'pointer',
+            fontSize: '13px',
+            color: '#374151',
+          }}>
+            Refresh Data
+          </button>
+        </div>
       </div>
       <SuspenseBoundary
         suspenseKey={`analytics-${refreshKey}`}
         fallback={<SkeletonDashboard />}
         level="section"
       >
-        <AnalyticsChart />
+        <AnalyticsChart realtimeUpdate={realtimeUpdate} />
       </SuspenseBoundary>
     </div>
   );
 });
 
-const AnalyticsChart = memo(function AnalyticsChart() {
+const AnalyticsChart = memo(function AnalyticsChart({ realtimeUpdate }) {
   const response = readAnalytics();
-  const { summary, timeSeries } = response.data;
+  const { summary: initialSummary, timeSeries: initialTimeSeries } = response.data;
+
+  // Merge real-time WebSocket data into the summary when available
+  const summary = useMemo(() => {
+    if (!realtimeUpdate) return initialSummary;
+    return {
+      ...initialSummary,
+      activeToday: realtimeUpdate.activeUsers,
+      totalRequests: realtimeUpdate.requests,
+      avgResponseTime: realtimeUpdate.avgLatency,
+      errorRate: realtimeUpdate.errorRate,
+    };
+  }, [initialSummary, realtimeUpdate]);
+
+  // Append the latest real-time data point to the time series
+  const timeSeries = useMemo(() => {
+    if (!realtimeUpdate || !initialTimeSeries) return initialTimeSeries;
+    const livePoint = {
+      timestamp: realtimeUpdate.timestamp,
+      activeUsers: realtimeUpdate.activeUsers,
+      requests: realtimeUpdate.requests,
+      errorRate: realtimeUpdate.errorRate,
+      avgLatency: realtimeUpdate.avgLatency,
+    };
+    const updated = [...initialTimeSeries.slice(1), livePoint];
+    return updated;
+  }, [initialTimeSeries, realtimeUpdate]);
 
   // Memoize computed chart data
   const chartBars = useMemo(() => {

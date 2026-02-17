@@ -1,7 +1,5 @@
 /**
  * Deep equality comparison utility.
- *
- * Competency: React Hook Dependencies
  */
 
 function deepEqual(a, b) {

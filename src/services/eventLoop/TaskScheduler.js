@@ -1,10 +1,6 @@
 /**
  * TaskScheduler - Schedules work across different event loop phases properly.
  * Uses requestIdleCallback, requestAnimationFrame, queueMicrotask, setTimeout.
- *
- * Competencies: Event Loop Optimization, Event Loop Understanding
- * Bug surface: phase confusion, priority misunderstanding, starvation, blocking,
- *              microtask flooding, timer interference, callback ordering
  */
 
 const PRIORITY = {

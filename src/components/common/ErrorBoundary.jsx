@@ -1,9 +1,5 @@
 /**
  * ErrorBoundary - Catches rendering errors and displays fallback UI.
- *
- * Competency: React Suspense Implementation, React Component Suspense Management
- * Bug surface: suspense not catching errors, missing error boundary with suspense,
- *              boundary error propagation, boundary unmounting issues
  */
 
 import React from 'react';

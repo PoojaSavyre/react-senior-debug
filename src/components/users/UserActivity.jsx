@@ -1,8 +1,5 @@
 /**
  * UserActivity - Displays user activity timeline.
- *
- * Competency: React Suspense for Data Fetching
- * Bug surface: suspense not integrating with useEffect, stale data
  */
 
 import React, { memo } from 'react';

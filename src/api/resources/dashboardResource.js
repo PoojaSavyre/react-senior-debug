@@ -1,7 +1,5 @@
 /**
  * Dashboard-related Suspense resources.
- *
- * Competency: React Suspense for Data Fetching
  */
 
 import { createResource } from './createResource';

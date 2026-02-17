@@ -1,8 +1,5 @@
 /**
  * MetricsPanel - Displays performance metrics (FCP, LCP, CLS, render stats).
- *
- * Competency: React Performance Analysis
- * Bug surface: untracked performance metrics, stale props
  */
 
 import React, { memo } from 'react';

@@ -1,10 +1,6 @@
 /**
  * TimerPlayground - Demonstrates correct ordering and behavior of different
  * async scheduling mechanisms in the event loop.
- *
- * Competency: Event Loop Understanding
- * Bug surface: timer event loop interference, setTimeout delay, callback ordering,
- *              microtask flooding, phase skipping, priority inversion
  */
 
 import React, { useState, useCallback, memo } from 'react';

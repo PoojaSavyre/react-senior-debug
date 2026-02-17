@@ -1,7 +1,5 @@
 /**
  * UsersPage - Lazy loaded route page for users.
- *
- * Competency: Bundle Optimization, React Suspense for Data Fetching
  */
 
 import React from 'react';

@@ -1,9 +1,5 @@
 /**
  * Event Loop Profiler - Measures timing across different event loop phases.
- *
- * Competencies: Event Loop Optimization, Event Loop Understanding
- * Bug surface: phase skipping, tick misunderstanding, timer delays,
- *              nextTick abuse, callback ordering, recursive blocking
  */
 
 class EventLoopProfiler {

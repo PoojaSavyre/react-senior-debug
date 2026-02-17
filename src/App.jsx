@@ -1,10 +1,5 @@
 /**
  * App - Root component with top-level Suspense boundary, Router, and Context providers.
- *
- * Competency: React Suspense Implementation, React Component Suspense Management
- * Bug surface: suspense with react strict mode, suspense boundary placement,
- *              context integration with suspense, missing error boundary,
- *              concurrent rendering, SSR considerations
  */
 
 import React, { Suspense, lazy } from 'react';

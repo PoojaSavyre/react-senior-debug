@@ -1,8 +1,5 @@
 /**
  * FeedFilter - Filter controls for the live feed with debounced updates.
- *
- * Competency: React Hook Dependencies
- * Bug surface: callback dependencies, stale closure
  */
 
 import React, { memo, useCallback } from 'react';

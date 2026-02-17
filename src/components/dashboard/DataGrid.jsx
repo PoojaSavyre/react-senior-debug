@@ -1,9 +1,5 @@
 /**
  * DataGrid - Large dataset rendering with virtualization-like pattern.
- *
- * Competency: React Performance Analysis, Event Loop Optimization, API Response Caching
- * Bug surface: blocking event loop, stale props, incorrect React.memo,
- *              cache strategies, race conditions
  */
 
 import React, { memo, useMemo, useState, useCallback } from 'react';
