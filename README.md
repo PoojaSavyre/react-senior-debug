@@ -1,2 +1,3 @@
 ﻿# react-senior-debug
-no longer using these
+no longer using these for debug
+
